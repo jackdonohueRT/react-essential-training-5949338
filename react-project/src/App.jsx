@@ -1,9 +1,11 @@
 import "./App.css";
 
-function Header() {
+function Header(props) {
+  console.log(props);
   return (
     <header>
-      <h1>Eve's Kitchen</h1>
+      <h1>{props.name}'s Kitchen</h1>
+      <p>Updated at {props.time} ms past the second</p>
     </header>
   );
 }
@@ -11,7 +13,7 @@ function Header() {
 function App() {
   return (
     <div>
-      <Header />
+      <Header name="Jack" time={new Date().getMilliseconds()} />
       <main>
         <h2>We serve the most delicious food around</h2>
       </main>
