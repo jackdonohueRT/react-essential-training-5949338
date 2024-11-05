@@ -9,13 +9,34 @@ function Header({ name, year }) {
   );
 }
 
+const items = [
+  "a",
+  "b",
+  "c",
+]
+
+const dishObjects = items.map((dish, i) => ({
+  id: i,
+  name: dish
+}));
+
+console.log(dishObjects);
+
+function Main({ dishes }) {
+  return (
+    <ul>
+      {dishes.map(dish => (
+        <li key={dish.id} style={{ listStyleType: "None" }}>{dish.name}</li>
+      ))}
+    </ul>
+  );
+}
+
 function App() {
   return (
     <div>
       <Header name="Alex" year={new Date().getFullYear()} />
-      <main>
-        <h2>We serve the most delicious food around</h2>
-      </main>
+      <Main dishes={dishObjects} />
     </div>
   );
 }
